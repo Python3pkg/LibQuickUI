@@ -124,12 +124,12 @@ def InstalledPyQtVersion(rev = 2,qtrev = 4):
         return [0,0,0]    
     
 if __name__ == '__main__':
-    print "Platform",Platform()
-    print "Arch",Arch()
-    print "Python",PythonVersion()
-    print "Installed Python2",InstalledPythonPath(2),InstalledPythonVersion(2)
-    print "Installed Python2 Qt4",InstalledPyQtVersion(2,4)
-    print "Installed Python2 Qt5",InstalledPyQtVersion(2,5)
-    print "Installed Python3",InstalledPythonPath(3),InstalledPythonVersion(3)
-    print "Installed Python3 Qt4",InstalledPyQtVersion(3,4)
-    print "Installed Python3 Qt5",InstalledPyQtVersion(3,5)
+    print("Platform",Platform())
+    print("Arch",Arch())
+    print("Python",PythonVersion())
+    print("Installed Python2",InstalledPythonPath(2),InstalledPythonVersion(2))
+    print("Installed Python2 Qt4",InstalledPyQtVersion(2,4))
+    print("Installed Python2 Qt5",InstalledPyQtVersion(2,5))
+    print("Installed Python3",InstalledPythonPath(3),InstalledPythonVersion(3))
+    print("Installed Python3 Qt4",InstalledPyQtVersion(3,4))
+    print("Installed Python3 Qt5",InstalledPyQtVersion(3,5))

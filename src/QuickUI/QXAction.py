@@ -2,11 +2,11 @@
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
-from QXApplication import *
+from .QXApplication import *
 import platform
 import sys
 import re
-import quick_ui_res
+from . import quick_ui_res
 import json
 
 class QXAction(QAction):

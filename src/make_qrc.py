@@ -8,7 +8,7 @@ try:
     res_path = sys.argv[1]
     output_file = sys.argv[2]
 except:
-    print "Usage: %s [res_path] [output_file]" % sys.argv[0]
+    print("Usage: %s [res_path] [output_file]" % sys.argv[0])
     exit()
 
 iconRoot = QDir(res_path + '/usr/share/icons/')
@@ -16,7 +16,7 @@ FilterDir = QDir.AllDirs | QDir.NoDotAndDotDot | QDir.Readable
 
 fout = QFile(output_file)
 if not fout.open(QIODevice.WriteOnly):
-    print "Cannot open %s for write" % output_file
+    print("Cannot open %s for write" % output_file)
     exit()
 
 fout.write("<!DOCTYPE RCC><RCC version=\"1.0\">\n<qresource>\n")
@@ -62,7 +62,7 @@ for themeEntry in iconRoot.entryInfoList(FilterDir):
     for sizeEntry in themeRoot.entryInfoList(FilterDir):
         size_name = sizeEntry.fileName()
         size_qrc_path = sizeEntry.filePath()
-        print " ",size_name,size_qrc_path
+        print(" ",size_name,size_qrc_path)
         
         sizeRoot = QDir(sizeEntry.filePath())
         

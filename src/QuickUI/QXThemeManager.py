@@ -2,7 +2,7 @@
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
-import quick_ui_res
+from . import quick_ui_res
 import json
 import platform
 import re
@@ -24,7 +24,7 @@ class QXThemeManager(QWidget):
     def findIcon(self,iconName,sizeSpec='default',callback=None):
         #print "findInon",iconName
         if not callback is None:
-            if not iconName in self.callbacks.keys():
+            if not iconName in list(self.callbacks.keys()):
                 self.callbacks[iconName] = []
             self.callbacks[iconName].append(callback)
         
@@ -130,7 +130,7 @@ class QXThemeManager(QWidget):
             t = False
             k = item + '-' + self.icon_db[item]
             #print "?",k,len(k),
-            if k in rsj_db.keys() and rsj_db[k]:
+            if k in list(rsj_db.keys()) and rsj_db[k]:
                 t = True
                 self.selected_theme = item
                 #print "Select Icon Theme",item
@@ -145,7 +145,7 @@ class QXThemeManager(QWidget):
         return r
     
     def getStyleList(self):
-        styleList = QStyleFactory.keys()
+        styleList = list(QStyleFactory.keys())
         rsj = str(self.settings.value('0-0-General/Theme/Style','').toString())
         #print rsj
         rsj_db = {}
@@ -163,7 +163,7 @@ class QXThemeManager(QWidget):
         for item in styleList:
             t = False
             k = str(item)
-            if k in rsj_db.keys() and rsj_db[k]:
+            if k in list(rsj_db.keys()) and rsj_db[k]:
                 t = True
                 use_default = False
                 QApplication.setStyle(QStyleFactory.create(k))             
@@ -184,7 +184,7 @@ class QXThemeManager(QWidget):
                 break
             
     def getDefaultSystemStyle(self):
-        styleList = QStyleFactory.keys()
+        styleList = list(QStyleFactory.keys())
         style_keys = []
         if platform.system() == 'Darwin':
             style_keys = ['Mac']
@@ -201,5 +201,5 @@ class QXThemeManager(QWidget):
 if __name__ == '__main__':
     d = QDir(':/')
     for sd in d.entryList():
-        print sd
+        print(sd)
     

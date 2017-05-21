@@ -2,7 +2,7 @@
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
-from QXThemeManager import *
+from .QXThemeManager import *
 
 import platform
 import sys

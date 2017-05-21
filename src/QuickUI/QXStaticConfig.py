@@ -2,12 +2,12 @@
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
-from QXApplication import QXApplication
+from .QXApplication import QXApplication
 
 import platform
 import sys
 import re
-import quick_ui_res
+from . import quick_ui_res
 import json
 
 class QXCheckBox(QCheckBox):
@@ -540,7 +540,7 @@ class QXStaticConfig(QMainWindow):
                             nd = []
                             for item_d in d:
                                 key = item_d[0] + item_d[1]
-                                if key in ddict.keys():
+                                if key in list(ddict.keys()):
                                     item_d[2] = ddict[key]
                                 nd.append(item_d)
                             d = nd
@@ -569,7 +569,7 @@ class QXStaticConfig(QMainWindow):
         return lay
     
     def nullCallback(self,*kargs):
-        print kargs
+        print(kargs)
     
 if __name__ == '__main__':    
     app = QApplication(sys.argv)
